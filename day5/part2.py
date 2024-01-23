@@ -41,15 +41,21 @@ class Mapping:
         for i, r in enumerate(ranges):
             # look for splits
             for m in self.map:
-                s, _, _ = m
+                s, _, l = m
                 if r.start < s <= r.end:
                     # split found!
-                    # ranges[i] = Range(r.start, s - r.start)
-                    # ranges.insert(i+1, Range(s, r.end - s + 1))
                     ranges[i] = Range.from_end(r.start, s-1)
                     ranges.insert(i+1, Range.from_end(s, r.end))
                     break
+                # here, we've confirmed that the map in question does not
+                # start in the range r
+                if r.start <= s+l-1 < r.end:
+                    # split found!
+                    ranges[i] = Range.from_end(r.start, s+l-1)
+                    ranges.insert(i+1, Range.from_end(s+l, r.end))
+                    break
 
+            r = ranges[i]
             # now we know that r[i] can be cleanly converted
             mapping = self.find_map(r)
             if mapping == -1:
@@ -57,9 +63,6 @@ class Mapping:
             else:
                 start, dest, _ = self.map[mapping]
                 converts.append(Range(r.start + dest - start, r.length))
-            if converts[-1].start == 0:
-                pass
-                # print(r) print(converts[-1])
 
         return converts
 
@@ -73,8 +76,6 @@ def main():
     for i in range(len(raw_seeds) // 2):
         seeds.append(Range(raw_seeds[2*i], raw_seeds[2*i+1]))
 
-    seeds = [seeds[3]]
-
     # parse mappings
     data = data[2:]
     while len(data) > 0:
@@ -86,13 +87,9 @@ def main():
             data = data[1:]
         # convert ranges over
         seeds = m.convert_ranges(seeds)
-        print([str(x) for x in seeds])
-        m = min(seeds, key=lambda x: x.start)
         data = data[1:]
 
-    m = min(seeds, key=lambda x: x.start)
-    print(m.start, m.end)
-
+    print(min(seeds, key=lambda s: s.start).start)
 
 if __name__ == '__main__':
     main()
