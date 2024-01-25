@@ -4,6 +4,24 @@
 
 ## My Solutions
 
+**Day 7**
+
+Part 1:
+
+To calculate the type of hand, build a frequency list of characters in the card,
+and do some basic control flow to differentiate between cards based on the max
+frequency and number of distinct cards. Loop through all the hands, and store them
+in 7 different arrays associated with their hand type. Sort each array with the
+comparison function checking characters 1 by 1 in the hand as per the puzzle. Then,
+simply calculate the total winnings.
+
+Part 2:
+
+Same as p1, but with two changes. 1: in the type calculation, account for jokers
+by treating them as the highest frequency non-joker card. This will always lead
+to the most optimal "joker-upgrade." 2: in the comparison, treat 'J' as the
+smallest number, as per the puzzle.
+
 **Day 6**
 
 Part 1:
@@ -13,8 +31,6 @@ Quadratic formula.
 Part 2:
 
 Quadratic formula.
-
-> why???
 
 **Day 5**
 
