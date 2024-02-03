@@ -19,7 +19,7 @@ can write an equation `pos(n) = first_z_pos + distance_between_zs * n`
 `first_z_pos` and `distance_between_zs` is equal. So, we can write the relation,
 `d0 * a = d1 * b = d2 * c = d3 * d = d4 * e = d5 * f`, where each `d` is the
 distance between zs for each ghost `a-f`. To solve this system, find the LCM of the
-5 coefficient.
+5 coefficients.
 
 **Day 7**
 
