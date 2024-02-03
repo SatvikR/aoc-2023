@@ -12,6 +12,9 @@ Simple brute force.
 
 Part 2:
 
+> Easier solution than what I did; find the LCM of the 6 coefficients mentioned
+> later in the solution.
+
 What is not mentioned in the prompt is that for the input set, every ghost only
 has one 'Z' node that it continuously loops on. Therefore, for every ghost, we
 can write an equation `pos(n) = first_z_pos + distance_between_zs * n`
