@@ -1,3 +1,5 @@
+from math import lcm
+
 def parse(data, dataset, strip=True):
     with open(dataset) as f:
         n = f.readline()
@@ -36,13 +38,7 @@ def solve(dataset):
                     break
         coefs.append(steps)
 
-    x = ['a', 'b', 'c', 'd', 'e', 'f']
-    eq = ""
-    for c in coefs:
-        eq += f'{c}{x[0]} = '
-        x = x[1:]
-    eq = eq[:-3]
-    print(eq)
+    print(lcm(*coefs))
 
 if __name__ == '__main__':
     print('--test--')

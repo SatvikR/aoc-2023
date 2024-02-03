@@ -12,21 +12,14 @@ Simple brute force.
 
 Part 2:
 
-> Easier solution than what I did; find the LCM of the 6 coefficients mentioned
-> later in the solution.
-
 What is not mentioned in the prompt is that for the input set, every ghost only
 has one 'Z' node that it continuously loops on. Therefore, for every ghost, we
 can write an equation `pos(n) = first_z_pos + distance_between_zs * n`
 . It also turns out, (and this is also not mentioned in the prompt), that
 `first_z_pos` and `distance_between_zs` is equal. So, we can write the relation,
 `d0 * a = d1 * b = d2 * c = d3 * d = d4 * e = d5 * f`, where each `d` is the
-distance between zs for each ghost `a-f`. My code calculates those coefficiants
-and prints out an equation that can be plugged in to any computer algebra system
---I used WolframAlpha--to solve for an integer solution. Once an integer
-solution for `a-f` is obtained, simply choose any of the ghosts, multiply the
-integer solution provided by the coefficiant, and that will be the total number
-of steps.
+distance between zs for each ghost `a-f`. To solve this system, find the LCM of the
+5 coefficient.
 
 **Day 7**
 
