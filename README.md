@@ -4,6 +4,12 @@
 
 ## My Solutions
 
+**Day 9**
+
+Part 1 & 2:
+
+Brute force; constructing the derivative arrays for each row.
+
 **Day 8**
 
 Part 1:
