@@ -90,6 +90,7 @@ def solve(dataset):
                     d = dfs(prev, curr, distance, nodes)
                     if d == None:
                         break
+                break
     m = -1
     for row in nodes:
         for e in row:
