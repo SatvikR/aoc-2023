@@ -1,4 +1,3 @@
-from sys import setrecursionlimit
 from math import ceil
 
 def parse(data, dataset, strip=True):
