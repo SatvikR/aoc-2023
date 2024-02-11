@@ -4,6 +4,29 @@
 
 ## My Solutions
 
+**Day 10**
+
+Part 1:
+
+Brute force; follow the path as if it were a linked list via recursion,
+saving the distance of each node as you go. Answer will be the ceiling quotient
+of the max distance and 2.
+
+Part 2:
+
+Consider one row of map: `.....|..|.....`. It is evident that in this row, two
+points are _necessarily_ part of the loop, as we entered the loop at the first
+pole, and exited at the second. If you consider a more complicated row:
+`...|..||..|...`, it is evident here that 4 points are part of the loop, by the
+same reasoning. To do this analysis on every row, simply keep track of the
+vertical direction of each node in the loop; only points that are not `.` are
+necessary to track, since they are the only ones that move vertically. To
+calculate direction, simply look at the previous and next nodes in the loop
+to see if the row changes. From there, loop through each row, and keep track
+of the number of times the direction has changed during the iteration to find
+out whether or not a point on the map in question is in or out of the loop.
+No complicated dfs needed!
+
 **Day 9**
 
 Part 1 & 2:
