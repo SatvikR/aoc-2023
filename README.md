@@ -4,6 +4,23 @@
 
 ## My Solutions
 
+**Day 11**
+
+Part 1:
+
+Loop through the dataset row-wise, creating a 2D array as you go which tracks the 
+value and position of each object. Keep track of the total number of empty rows
+you have encountered, and for every object you encounter, add it's row index
+in the dataset to the number of empty rows seen so far. Do the same for columns,
+updating the new 2D array. From there, simply loop through each pair of 
+galaxies, using the formula `abs(x2 - x1) + abs(y2 - y1)` to find the distance
+between each.
+
+Part 2:
+
+Same as part 1, but rather than incrementing the empty row/col counter by `1`,
+increase it by `999999`.
+
 **Day 10**
 
 Part 1:
